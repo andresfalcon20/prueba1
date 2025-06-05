@@ -17,16 +17,22 @@ public class PlatoControlador {
     @Autowired
     private PlatoServicio platoServicio;
 
-    // Listar platos
+    //listar
     @GetMapping
     public String listarPlatos(@RequestParam(name = "buscarPlato", required = false, defaultValue = "")
                                String buscarPlato, Model model){
 
-        List<Plato> platos = platoServicio.buscarPlatoPorCategoria(buscarPlato);
+        List<Plato> platos;
+        if (buscarPlato == null || buscarPlato.trim().isEmpty()) {
+            platos = platoServicio.mostrarPlatos();
+        } else {
+            platos = platoServicio.buscarPlatoPorCategoria(buscarPlato);
+        }
         model.addAttribute("buscarPlato", buscarPlato);
         model.addAttribute("platos", platos);
         return "pages/listaMenu";
     }
+
 
     //nuevo
     @GetMapping("/formularioPlato")

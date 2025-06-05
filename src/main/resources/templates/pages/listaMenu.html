@@ -47,7 +47,7 @@
                     <th>Precio</th>
                     <th>Categoría</th>
                     <th>Disponible</th>
-                    <th>Acciones</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -62,15 +62,15 @@
                         <span th:unless="${plato.disponible}" class="badge bg-danger">No</span>
                     </td>
                     <td>
-                        <a th:href="@{/editarPlato/} + ${plato.id}" class="btn btn-warning btn-sm">Actualizar</a>
-                        <a th:href="@{/eliminarPlato/} + ${plato.id}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a th:href="@{platos/editarPlato/} + ${plato.id}" class="btn btn-warning btn-sm">Actualizar</a>
+                        <a th:href="@{platos/eliminarPlato/} + ${plato.id}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
 
             <div class="text-center mt-3">
-                <a th:href="@{/formularioPlato}" class="btn btn-dark">Nuevo Plato</a>
+                <a th:href="@{/platos/formularioPlato}" class="btn btn-dark">Nuevo Plato</a>
             </div>
         </div>
     </div>

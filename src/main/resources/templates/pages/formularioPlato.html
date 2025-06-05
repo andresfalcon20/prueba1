@@ -8,7 +8,6 @@
 </head>
 <body class="bg-light">
 
-<form th:action="@{/platos/guardarPlato}" method="post" th:object="${plato}">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand fw-bold" href="/">RESTAURANTE</a>
@@ -28,10 +27,10 @@
 <div class="container mt-5">
     <div class="card shadow-sm">
         <div class="card-header bg-dark text-white">
-            <h2 class="text-center">REGISTRAR NUEVO PLATO</h2>
+            <h2 class="text-center" th:text="${plato.id == null ? 'REGISTRAR NUEVO PLATO' : 'EDITAR PLATO'}"></h2>
         </div>
         <div class="card-body">
-            <form th:action="@{/platos/guardar}" method="post" th:object="${plato}">
+            <form th:action="@{/platos/guardarPlato}" method="post" th:object="${plato}">
                 <input type="hidden" th:field="*{id}">
 
                 <div class="mb-3">
@@ -63,8 +62,7 @@
 
                 <div class="mb-3 form-check">
                     <label class="form-check-label" for="disponible">PLATO DISPONIBLE</label>
-                    <input type="checkbox" class="form-check-input" id="disponible" th:field="*{disponible}" value="true">
-
+                    <input type="checkbox" class="form-check-input" id="disponible" th:field="*{disponible}">
                 </div>
 
                 <div class="text-center">
@@ -79,6 +77,5 @@
 <footer class="bg-dark text-white text-center py-3 mt-5">
     <p class="mb-0">© 2025 Restaurante | Todos los derechos reservados</p>
 </footer>
-</form>
 </body>
 </html>
