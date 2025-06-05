@@ -17,22 +17,23 @@ public class Plato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+
+    @NotBlank(message = "El nombre no puede estar vacío")
     @Size(max = 100)
     private String nombre;
 
-
-    @Size(max = 500)
+    @Size(max = 500, message = "La descripción debe tener máximo 500 caracteres")
     private String descripcion;
 
-    @NotNull
-
+    @NotNull(message = "El precio es obligatorio")
     private int precio;
 
-    @NotBlank
-    @Size(max = 50)
+    @NotBlank(message = "La categoría no puede estar vacía")
+    @Size(max = 50, message = "La categoría debe tener máximo 50 caracteres")
     private String categoria;
 
+    @NotNull(message = "Debe indicar si el plato está disponible")
+    private Boolean disponible;
 
-    private String disponible;
+
 }
