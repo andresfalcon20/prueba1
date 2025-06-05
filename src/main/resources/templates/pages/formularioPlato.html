@@ -8,7 +8,7 @@
 </head>
 <body class="bg-light">
 
-<!-- Navbar -->
+<form th:action="@{/platos/guardarPlato}" method="post" th:object="${plato}">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand fw-bold" href="/">RESTAURANTE</a>
@@ -25,7 +25,6 @@
     </div>
 </nav>
 
-<!-- Formulario -->
 <div class="container mt-5">
     <div class="card shadow-sm">
         <div class="card-header bg-dark text-white">
@@ -77,10 +76,9 @@
     </div>
 </div>
 
-<!-- Footer -->
 <footer class="bg-dark text-white text-center py-3 mt-5">
     <p class="mb-0">© 2025 Restaurante | Todos los derechos reservados</p>
 </footer>
-
+</form>
 </body>
 </html>
